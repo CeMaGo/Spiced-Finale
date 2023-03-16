@@ -1,7 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" /> */}
       </Head>
-      <main className={styles.main}>
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </main>
+      <main className={styles.main}>{Guest()}</main>
     </>
   );
 }
+// Guest
+function Guest() {
+  return (
+    <main className="container mx-auto text-center py-20">
+      <h3 className="text-4xl font-bold">Guest Homepage, Just Visiting</h3>
+      <div className="flex justify-center">
+        <Link
+          href={"/login"}
+          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-800"
+        >
+          Sign In
+        </Link>
+      </div>
+    </main>
+  );
+}
+// Authorized User
