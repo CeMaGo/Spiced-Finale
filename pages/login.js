@@ -6,10 +6,18 @@ import styles from "../styles/Form.module.css";
 import Image from "next/image";
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from "react";
+import { signIn, signOut } from "next-auth/react";
 
 function Login() {
   const [show, setShow] = useState(false);
-
+  // Google handle function
+  async function handleGoogleSignIn() {
+    signIn(`google`, { callbackUrl: "http://localhost:3000" });
+  }
+  //Github SignIn
+  async function handleGithubSignIn() {
+    signIn(`github`, { callback: "http://localhost:3000" });
+  }
   return (
     <Layout>
       <Head>
@@ -57,7 +65,11 @@ function Login() {
               Login
             </button>
             <div className="input-button">
-              <button type="button" className={styles.button_custom}>
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                className={styles.button_custom}
+              >
                 Sign In with Google
                 <Image
                   src={"../assets/icons8-google-logo-100.svg"}
@@ -68,10 +80,14 @@ function Login() {
               </button>
             </div>
             <div className="input-button">
-              <button type="button" className={styles.button_custom}>
-                Sign in with github{" "}
+              <button
+                onClick={handleGithubSignIn}
+                type="button"
+                className={styles.button_custom}
+              >
+                Sign in with Github{" "}
                 <Image
-                  src={"../assets/icons8-github-cloud.svg"}
+                  src={"/assets/icons8-github-cloud/iOS"}
                   width={25}
                   height={25}
                   alt="Github Logo with clouds"
