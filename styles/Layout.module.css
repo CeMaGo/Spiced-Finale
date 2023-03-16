@@ -1,0 +1,5 @@
+.imgStyle {
+  @apply bg-gradient-to-r from-violet-500 to-purple-500 rounded-l-sm;
+  position: relative;
+  overtflow: hidden;
+}
