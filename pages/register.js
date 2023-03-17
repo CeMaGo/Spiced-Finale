@@ -6,6 +6,7 @@ import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from "react";
 import { Formik, useFormik } from "formik";
 import { registerValidat } from "@/lib/validation";
+import { router } from "next/router";
 
 export default function Register() {
   const [show, setShow] = useState({ password: false, cpassword: false });
@@ -22,6 +23,16 @@ export default function Register() {
 
   async function onSubmit(values) {
     console.log(values);
+    const option = {
+      method: "POST",
+      header: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    };
+    await fetch("http://localhost:3000/api/auth/signup", option)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) router.push("http://localhost:3000");
+      });
   }
   return (
     <div>

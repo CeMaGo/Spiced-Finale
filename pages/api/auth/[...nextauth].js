@@ -24,7 +24,14 @@ export default nextAuth({
 const result = await Users.findOne({email:credentials.email})
 if(!result){throw new Error(" A User with the given Email does not exist, please Sign Up!")};
       // User does exist, now compare passwords..
-      const checkPassword = }
+      const checkPassword = await compare(credentials.password, result.password);
+//incorrect?
+if(!checkPassword ||result.email !== credentials.email){
+  throw new Error("Username or Password is not matching")
+}
+return result
+
+
     })
   ],
 });
