@@ -1,13 +1,13 @@
 import nextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
-import { CredentialsProvider } from "next-auth/providers";
+// import { CredentialsProvider } from "next-auth/providers";
 import connectMongo from "@/database/connectDb";
 import { compare } from "bcryptjs";
 import Users from "@/model/schema";
-import { compare } from "bcryptjs";
+// import { compare } from "bcryptjs";
 
-export default NextAuth({
+export default nextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
