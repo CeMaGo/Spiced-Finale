@@ -49,7 +49,13 @@ function Login() {
         </div>
         {/* form */}
         <form className="flex flex-col gap-5">
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group}${
+              formik.errors.email && formik.touched.email
+                ? "border-rose-600"
+                : ""
+            }`}
+          >
             <input
               type="email"
               name="email"
@@ -66,7 +72,13 @@ function Login() {
           ) : (
             <></>
           )}
-          <div className={styles.input_group}>
+          <div
+            className={`${styles.input_group}${
+              formik.errors.password && formik.touched.password
+                ? "border-rose-600"
+                : ""
+            }`}
+          >
             <input
               type={`${show ? "text" : "password"}`}
               name="password"
