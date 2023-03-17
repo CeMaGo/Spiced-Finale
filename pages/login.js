@@ -18,6 +18,7 @@ function Login() {
       email: "",
       password: "",
     },
+    //receives from /lib/validation.js
     validate: login_validate,
     onSubmit,
   });

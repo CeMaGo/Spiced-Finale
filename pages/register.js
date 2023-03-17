@@ -4,9 +4,25 @@ import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from "react";
+import { Formik, useFormik } from "formik";
+import { registerValidat } from "@/lib/validation";
 
 export default function Register() {
   const [show, setShow] = useState({ password: false, cpassword: false });
+  const formic = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+      cpassword: "",
+    },
+    validate: registerValidat,
+    onSubmit,
+  });
+
+  async function onSubmit(values) {
+    console.log(values);
+  }
   return (
     <div>
       <Layout>
@@ -17,35 +33,66 @@ export default function Register() {
             <p className=" w-3/4 mx-auto text-gray-400">Lorem ipsum</p>
           </div>
           {/* form */}
-          <form className="flex flex-col gap-5">
-            <div className={styles.input_group}>
+          <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
+            <div
+              className={`${styles.input_group}${
+                formik.errors.username && formik.touched.username
+                  ? "border-rose-600"
+                  : ""
+              }`}
+            >
               <input
                 type="text"
                 name="Username"
                 placeholder="Username"
                 className={styles.input_text}
+                {...formik.getFieldProps("username")}
               />
               <span className="icon flex items-center px-4">
                 <HiOutlineUser size={25} />
               </span>
+              {formik.error.username && formik.touched.username ? (
+                <span className="text-rose-600">{formic.error.username}</span>
+              ) : (
+                <></>
+              )}
             </div>
-            <div className={styles.input_group}>
+            <div
+              className={`${styles.input_group}${
+                formik.errors.username && formik.touched.username
+                  ? "border-rose-600"
+                  : ""
+              }`}
+            >
               <input
                 type="email"
                 name="email"
                 placeholder="Email"
                 className={styles.input_text}
+                {...formik.getFieldProps("email")}
               />
               <span className="icon flex items-center px-4">
                 <HiAtSymbol size={25} />
               </span>
+              {formik.error.email && formik.touched.email ? (
+                <span className="text-rose-600">{formic.error.email}</span>
+              ) : (
+                <></>
+              )}
             </div>
-            <div className={styles.input_group}>
+            <div
+              className={`${styles.input_group}${
+                formik.errors.username && formik.touched.username
+                  ? "border-rose-600"
+                  : ""
+              }`}
+            >
               <input
                 type={`${show.password ? "text" : "password"}`}
                 name="password"
                 placeholder="Password"
                 className={styles.input_text}
+                {...formik.getFieldProps("password")}
               />
               <span
                 className="icon flex items-center px-4"
@@ -55,13 +102,25 @@ export default function Register() {
               >
                 <HiFingerPrint size={25} />
               </span>
+              {formik.error.password && formik.touched.password ? (
+                <span className="text-rose-600">{formic.error.password}</span>
+              ) : (
+                <></>
+              )}
             </div>
-            <div className={styles.input_group}>
+            <div
+              className={`${styles.input_group}${
+                formik.errors.username && formik.touched.username
+                  ? "border-rose-600"
+                  : ""
+              }`}
+            >
               <input
                 type={`${show.cpassword ? "text" : "password"}`}
                 name="cpassword"
                 placeholder="Confirm Password"
                 className={styles.input_text}
+                {...formik.getFieldProps("cpassword")}
               />
               <span
                 className="icon flex items-center px-4"
@@ -71,11 +130,16 @@ export default function Register() {
               >
                 <HiFingerPrint size={25} />
               </span>
+              {formik.error.cpassword && formik.touched.cpassword ? (
+                <span className="text-rose-600 ">{formic.error.cpassword}</span>
+              ) : (
+                <></>
+              )}
             </div>
             {/* login buttons */}
             <div className="input-button">
               <button type="submit" className={styles.button}>
-                Login
+                Sign Up
               </button>
             </div>
           </form>

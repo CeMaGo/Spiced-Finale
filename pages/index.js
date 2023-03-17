@@ -90,7 +90,14 @@ export async function getServerSideProps({ req }) {
     };
   }
 }
-
+// useEffect(() => {
+//   const fetchData = async () => {
+//     const res = await fetch(`http://localhost:3000/api/tasks`);
+//     const data = await res.json();
+//     console.log(data);
+//   };
+//   fetchData();
+// }, []);
 // if (session) {
 //   return (
 //     <>
