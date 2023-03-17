@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
@@ -11,7 +10,7 @@ import { useFormik } from "formik";
 import login_validate from "@/lib/validation";
 import { useRouter } from "next/router";
 
-function Login() {
+export default function Login() {
   const [show, setShow] = useState(false);
   const router = useRouter;
   //formik hook
@@ -50,6 +49,7 @@ function Login() {
       <Head>
         <title>Login</title>
       </Head>
+
       <section className="w-3/4 mx-auto flex flex-col gap-10 ">
         <div className="title">
           <h1 className="text-gray-800 text-4xl font-bold py-4">Explore</h1>
@@ -57,10 +57,11 @@ function Login() {
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
           </p>
         </div>
+
         {/* form */}
-        <form className="flex flex-col gap-5">
+        <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
           <div
-            className={`${styles.input_group}${
+            className={`${styles.input_group} ${
               formik.errors.email && formik.touched.email
                 ? "border-rose-600"
                 : ""
@@ -110,6 +111,7 @@ function Login() {
           ) : (
             <></>
           )}
+
           {/* login buttons */}
           <div className="input-button">
             <button type="submit" className={styles.button}>
@@ -158,5 +160,3 @@ function Login() {
     </Layout>
   );
 }
-
-export default Login;

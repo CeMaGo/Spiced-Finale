@@ -1,12 +1,9 @@
 import Head from "next/head";
-// import Image from "next/image";
-import { Inter } from "@next/font/google";
+import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
-import { useSession, getSession, signOut } from "react";
-import { SessionProvider } from "next-auth/react";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useSession, getSession, signOut } from "next-auth/react";
+import { useState } from "react";
 
 export default function Home() {
   // const [session, setSession] = useState(false);
@@ -15,15 +12,16 @@ export default function Home() {
   function handleSignOut() {
     signOut();
   }
+
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title>Home Page</title>
       </Head>
-      <main className={styles.main}>
-        {session ? User({ session, handleSignOut }) : Guest()}
-      </main>
-    </>
+      {/* <main className={styles.main}> */}
+      {session ? User({ session, handleSignOut }) : Guest()}
+      {/* </main> */}
+    </div>
   );
 }
 // Guest
@@ -31,10 +29,11 @@ function Guest() {
   return (
     <main className="container mx-auto text-center py-20">
       <h3 className="text-4xl font-bold">Guest Homepage, Just Visiting</h3>
+
       <div className="flex justify-center">
         <Link
           href={"/login"}
-          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-800"
+          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
         >
           Sign In
         </Link>
@@ -42,9 +41,9 @@ function Guest() {
     </main>
   );
 }
-// Authorized User
+// now Authorized User
 
-function User({ session, handleSignOut, signOut }) {
+function User({ session, handleSignOut }) {
   return (
     <main className="container mx-auto text-center py-20">
       <h3 className="text-4xl font-bold">
@@ -59,7 +58,7 @@ function User({ session, handleSignOut, signOut }) {
       <div className="flex justify-center">
         <button
           onClick={handleSignOut}
-          className="mt-5 px-1- py-1 rounded-sm bg-indigo-500 (:hover bg-gray-50)"
+          className="mt-5 px-1- py-1 rounded-sm bg-indigo-500 text-gray-50"
         >
           Sign out
         </button>
@@ -68,7 +67,7 @@ function User({ session, handleSignOut, signOut }) {
       <div className="flex justify-center">
         <Link
           href={"/profile"}
-          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-800"
+          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
         >
           Profile Page
         </Link>
@@ -82,14 +81,21 @@ export async function getServerSideProps({ req }) {
   const session = await getSession({ req });
   if (!session) {
     return {
-      redirect: { destination: "/login", permanent: false },
-
-      // return
-      //  {
-      props: { session },
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
     };
   }
+
+  return;
+  {
+    props: {
+      session;
+    }
+  }
 }
+
 // useEffect(() => {
 //   const fetchData = async () => {
 //     const res = await fetch(`http://localhost:3000/api/tasks`);
