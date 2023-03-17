@@ -7,16 +7,33 @@ import Image from "next/image";
 import { HiAtSymbol, HiFingerPrint } from "react-icons/hi";
 import { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
+import { useFormik } from "formik";
+import login_validate from "@/lib/validation";
 
 function Login() {
   const [show, setShow] = useState(false);
+  //formik hook
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validate: login_validate,
+    onSubmit,
+  });
+
+  console.log(formik.errors);
+
+  async function onSubmit(values) {
+    console.log(values);
+  }
   // Google handle function
   async function handleGoogleSignIn() {
     signIn(`google`, { callbackUrl: "http://localhost:3000" });
   }
-  //Github SignIn
+  // Github SignIn
   async function handleGithubSignIn() {
-    signIn(`github`, { callback: "http://localhost:3000" });
+    signIn(`github`, { callbackUrl: "http://localhost:3000" });
   }
   return (
     <Layout>
@@ -38,17 +55,24 @@ function Login() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
+              {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
               <HiAtSymbol size={25} />
             </span>
           </div>
+          {formik.errors.email && formik.touched.email ? (
+            <span className="text-rose-400">{formik.errors.email}</span>
+          ) : (
+            <></>
+          )}
           <div className={styles.input_group}>
             <input
               type={`${show ? "text" : "password"}`}
               name="password"
               placeholder="Password"
               className={styles.input_text}
+              {...formik.getFieldProps("password")}
             />
             <span
               className="icon flex items-center px-4"
@@ -59,41 +83,46 @@ function Login() {
               <HiFingerPrint size={25} />
             </span>
           </div>
+          {formik.errors.password && formik.touched.password ? (
+            <span className="text-rose-500">{formik.errors.password}</span>
+          ) : (
+            <></>
+          )}
           {/* login buttons */}
           <div className="input-button">
             <button type="submit" className={styles.button}>
               Login
             </button>
-            <div className="input-button">
-              <button
-                type="button"
-                onClick={handleGoogleSignIn}
-                className={styles.button_custom}
-              >
-                Sign In with Google
-                <Image
-                  src={"../assets/icons8-google-logo-100.svg"}
-                  width={20}
-                  height={20}
-                  alt="Google Logo"
-                ></Image>
-              </button>
-            </div>
-            <div className="input-button">
-              <button
-                onClick={handleGithubSignIn}
-                type="button"
-                className={styles.button_custom}
-              >
-                Sign in with Github{" "}
-                <Image
-                  src={"/assets/icons8-github-cloud/iOS"}
-                  width={25}
-                  height={25}
-                  alt="Github Logo with clouds"
-                ></Image>
-              </button>
-            </div>
+          </div>
+          <div className="input-button">
+            <button
+              type="button"
+              onClick={handleGoogleSignIn}
+              className={styles.button_custom}
+            >
+              Sign In with Google
+              <Image
+                src={"../assets/icons8-google-logo-100.svg"}
+                width={20}
+                height={20}
+                alt="Google Logo"
+              ></Image>
+            </button>
+          </div>
+          <div className="input-button">
+            <button
+              onClick={handleGithubSignIn}
+              type="button"
+              className={styles.button_custom}
+            >
+              Sign in with Github{" "}
+              <Image
+                src={"/assets/icons8-github-cloud/iOS"}
+                width={25}
+                height={25}
+                alt="Github Logo with clouds"
+              ></Image>
+            </button>
           </div>
         </form>
         {/* bottom */}
