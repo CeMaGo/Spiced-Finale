@@ -6,12 +6,12 @@ import connectMongo from "@/database/connectDb";
 import { compare } from "bcryptjs";
 import Users from "@/model/schema";
 // import { compare } from "bcryptjs";
-
 export default nextAuth({
   providers: [
+    // Google Provider
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
     }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
@@ -21,8 +21,9 @@ export default nextAuth({
       name: "Credentials",
       async authorize(credentials, req) {
         connectMongo().catch((error) => {
-          error: "Connection Failed..!";
+          error: "Connection Failed...!";
         });
+
         // check if user is already existing
         const result = await Users.findOne({ email: credentials.email });
         if (!result) {
