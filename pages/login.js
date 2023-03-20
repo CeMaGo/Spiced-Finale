@@ -36,10 +36,6 @@ export default function Login() {
     console.log(status);
     if (status.ok) router.push(status.url);
   }
-  // Google handle function
-  async function handleGoogleSignIn() {
-    signIn(`google`, { callbackUrl: "http://localhost:3000" });
-  }
   // Github SignIn
   async function handleGithubSignIn() {
     signIn(`github`, { callbackUrl: "http://localhost:3000" });
@@ -52,9 +48,9 @@ export default function Login() {
 
       <section className="w-3/4 mx-auto flex flex-col gap-8 ">
         <div className="title">
-          <h1 className="text-gray-800 text-4xl font-bold py-4">Login</h1>
-          <p className=" w-3/4 mx-auto text-gray-400">
-            Lorem ipsum dolor sit amet
+          <h1 className="text-gray-800 text-4xl font-bold py-4">Boarding</h1>
+          <p className=" w-4/4 mx-auto text-gray-400">
+            There ain't no rest for the Wicked
           </p>
         </div>
 
@@ -118,21 +114,7 @@ export default function Login() {
               Login
             </button>
           </div>
-          {/* <div className="input-button">
-            <button
-              type="button"
-              onClick={handleGoogleSignIn}
-              className={styles.button_custom}
-            >
-              Sign In with Google
-              <Image
-                src={"/assets/google.svg"}
-                width={20}
-                height={20}
-                alt="Google colorful G Logo"
-              ></Image>
-            </button>
-          </div> */}
+
           <div className="input-button">
             <button
               onClick={handleGithubSignIn}
@@ -152,6 +134,7 @@ export default function Login() {
         {/* bottom */}
         <p className="text-gray-400 text-center ">
           No account yet?
+          <br />
           <Link href={"/register"} className="text-blue-700">
             Sign Up
           </Link>
