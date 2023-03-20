@@ -3,7 +3,7 @@ import styles from "../styles/Layout.module.css";
 
 export default function Layout({ children }) {
   return (
-    <div className="flex h-screen bg-gradient-to-r from-violet-500 to-indigo-500">
+    <div className="flex h-screen bg-gradient-to-r from-sky-700 to-slate-800">
       <div className="m-auto bg-slate-50 rounded-md w-3/5 h-3/4 grid lg:grid-cols-2">
         {/* <div className={styles.imgStyle}>Images</div> */}
 
