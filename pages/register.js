@@ -5,7 +5,7 @@ import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { registerValidate } from "@/lib/validation";
-import { useRouter, router } from "next/router";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 export default function Register() {
@@ -90,11 +90,11 @@ export default function Register() {
             <span className="icon flex items-center px-4">
               <HiAtSymbol size={25} />
             </span>
-            {formik.errors.email && formik.touched.email ? (
+            {/* {formik.errors.email && formik.touched.email ? (
               <span className="text-rose-600">{formik.errors.email}</span>
             ) : (
               <></>
-            )}
+            )} */}
           </div>
 
           <div

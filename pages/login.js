@@ -118,7 +118,7 @@ export default function Login() {
               Login
             </button>
           </div>
-          <div className="input-button">
+          {/* <div className="input-button">
             <button
               type="button"
               onClick={handleGoogleSignIn}
@@ -132,7 +132,7 @@ export default function Login() {
                 alt="Google colorful G Logo"
               ></Image>
             </button>
-          </div>
+          </div> */}
           <div className="input-button">
             <button
               onClick={handleGithubSignIn}

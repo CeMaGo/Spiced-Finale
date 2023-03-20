@@ -1,18 +1,12 @@
-import nextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 // import { CredentialsProvider } from "next-auth/providers";
 import connectMongo from "@/database/connectDb";
 import { compare } from "bcryptjs";
 import Users from "@/model/schema";
 // import { compare } from "bcryptjs";
-export default nextAuth({
+export default NextAuth({
   providers: [
-    // Google Provider, not workin...
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
@@ -44,7 +38,7 @@ export default nextAuth({
     }),
   ],
   // node <openssl rand -base64 32> / jwt.io allows one to decoded the Web token
-  secret: "I1U2ZmNDvugN2tnrCKyMZ8gEWLZs67RuPD5PxNH9pkU=",
+  secret: process.env.JWT_SECRET,
   session: {
     strategy: "jwt",
   },
