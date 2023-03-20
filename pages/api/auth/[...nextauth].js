@@ -43,7 +43,7 @@ export default nextAuth({
       },
     }),
   ],
-  // node <openssl rand -base64 32>
+  // node <openssl rand -base64 32> / jwt.io allows one to decoded the Web token
   secret: "I1U2ZmNDvugN2tnrCKyMZ8gEWLZs67RuPD5PxNH9pkU=",
   session: {
     strategy: "jwt",
