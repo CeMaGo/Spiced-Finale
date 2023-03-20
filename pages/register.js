@@ -3,20 +3,20 @@ import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
 import { useState } from "react";
-import { Formik, useFormik } from "formik";
-import { registerValidat, registerValidate } from "@/lib/validation";
+import { useFormik } from "formik";
+import { registerValidate } from "@/lib/validation";
 import { useRouter, router } from "next/router";
 import Head from "next/head";
 
 export default function Register() {
-  const [show, setShow] = useState({ password: false, cpassword: false });
+  const [show, setShow] = useState({ password: false, confirmPassword: false });
   const router = useRouter();
   const formic = useFormik({
     initialValues: {
       username: "",
       email: "",
       password: "",
-      cpassword: "",
+      confirmPassword: "",
     },
     validate: registerValidate,
     onSubmit,
@@ -134,20 +134,24 @@ export default function Register() {
             }`}
           >
             <input
-              type={`${show.cpassword ? "text" : "password"}`}
-              name="cpassword"
+              type={`${show.confirmPassword ? "text" : "password"}`}
+              name="confirmPassword"
               placeholder="Confirm Password"
               className={styles.input_text}
-              {...formik.getFieldProps("cpassword")}
+              {...formik.getFieldProps("confirmPassword")}
             />
             <span
               className="icon flex items-center px-4"
-              onClick={() => setShow({ ...show, cpassword: !show.cpassword })}
+              onClick={() =>
+                setShow({ ...show, confirmPassword: !show.confirmPassword })
+              }
             >
               <HiFingerPrint size={25} />
             </span>
-            {formik.errors.cpassword && formik.touched.cpassword ? (
-              <span className="text-rose-600 ">{formik.errors.cpassword}</span>
+            {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
+              <span className="text-rose-600 ">
+                {formik.errors.confirmPassword}
+              </span>
             ) : (
               <></>
             )}
@@ -162,7 +166,7 @@ export default function Register() {
         {/* bottom */}
         <p className="text-gray-400 text-center ">
           Already have an account?
-          <Link href={"/login"} className="text-blue-700">
+          <Link href={"/login"} className="text-pink-700">
             Sign In
           </Link>
         </p>

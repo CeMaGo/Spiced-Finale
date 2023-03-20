@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
+
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { useSession, getSession, signOut } from "next-auth/react";
-import { useState } from "react";
 
 export default function Home() {
   // const [session, setSession] = useState(false);
@@ -18,9 +17,8 @@ export default function Home() {
       <Head>
         <title>Home Page</title>
       </Head>
-      {/* <main className={styles.main}> */}
+
       {session ? User({ session, handleSignOut }) : Guest()}
-      {/* </main> */}
     </div>
   );
 }
@@ -88,12 +86,9 @@ export async function getServerSideProps({ req }) {
     };
   }
 
-  return;
-  {
-    props: {
-      session;
-    }
-  }
+  return {
+    props: { session },
+  };
 }
 
 // useEffect(() => {

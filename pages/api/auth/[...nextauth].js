@@ -8,10 +8,10 @@ import Users from "@/model/schema";
 // import { compare } from "bcryptjs";
 export default nextAuth({
   providers: [
-    // Google Provider
+    // Google Provider, not workin...
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
@@ -43,7 +43,7 @@ export default nextAuth({
       },
     }),
   ],
-  // node <openssl rand -base64 32>
+  // node <openssl rand -base64 32> / jwt.io allows one to decoded the Web token
   secret: "I1U2ZmNDvugN2tnrCKyMZ8gEWLZs67RuPD5PxNH9pkU=",
   session: {
     strategy: "jwt",
