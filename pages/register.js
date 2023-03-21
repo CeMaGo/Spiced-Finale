@@ -1,7 +1,12 @@
 import Layout from "@/layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
-import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
+import {
+  HiAtSymbol,
+  HiEyeOff,
+  HiFingerPrint,
+  HiOutlineUser,
+} from "react-icons/hi";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { registerValidate } from "@/lib/validation";
@@ -11,9 +16,9 @@ import Head from "next/head";
 export default function Register() {
   const [show, setShow] = useState({ password: false, confirmPassword: false });
   const router = useRouter();
-  const formic = useFormik({
+  const formik = useFormik({
     initialValues: {
-      username: "",
+      Username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -116,10 +121,10 @@ export default function Register() {
               className="icon flex items-center px-4"
               onClick={() => setShow({ ...show, password: !show.password })}
             >
-              <HiFingerPrint size={25} />
+              <HiEyeOff size={25} />
             </span>
-            {formik.error.password && formik.touched.password ? (
-              <span className="text-rose-600">{formic.error.password}</span>
+            {formik.errors.password && formik.touched.password ? (
+              <span className="text-rose-600">{formik.errors.password}</span>
             ) : (
               <></>
             )}
@@ -141,12 +146,13 @@ export default function Register() {
               {...formik.getFieldProps("confirmPassword")}
             />
             <span
-              className="icon flex items-center px-4"
+              className="icon flex items-center px-3
+              "
               onClick={() =>
                 setShow({ ...show, confirmPassword: !show.confirmPassword })
               }
             >
-              <HiFingerPrint size={25} />
+              <HiEyeOff size={25} />
             </span>
             {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
               <span className="text-rose-600 ">
@@ -166,7 +172,8 @@ export default function Register() {
         {/* bottom */}
         <p className="text-gray-400 text-center ">
           Already have an account?
-          <Link href={"/login"} className="text-pink-700">
+          <Link href={"/login"} className="text-indigo-800">
+            <br />
             Sign In
           </Link>
         </p>
