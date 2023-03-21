@@ -1,11 +1,12 @@
 import Head from "next/head";
-
+import { useState } from "react";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { useSession, getSession, signOut } from "next-auth/react";
+import Layout from "@/layout/layout";
 
 export default function Home() {
-  // const [session, setSession] = useState(false);
+  // const [Session, setSession] = useState(false);
   const { data: session } = useSession();
 
   function handleSignOut() {
@@ -15,28 +16,30 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Home Page</title>
+        <title>Home Page, hello World</title>
       </Head>
 
       {session ? User({ session, handleSignOut }) : Guest()}
     </div>
   );
 }
-// Guest
+// Guest only read, no edit
 function Guest() {
   return (
-    <main className="container mx-auto text-center py-20">
-      <h3 className="text-4xl font-bold">Guest Homepage, Just Visiting</h3>
+    <Layout>
+      <main className="container mx-auto text-center py-20">
+        <h3 className="text-4xl font-bold">Guest Homepage, Just Visiting</h3>
 
-      <div className="flex justify-center">
-        <Link
-          href={"/login"}
-          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
-        >
-          Sign In
-        </Link>
-      </div>
-    </main>
+        <div className="flex justify-center">
+          <Link
+            href={"/login"}
+            className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
+          >
+            Sign In
+          </Link>
+        </div>
+      </main>
+    </Layout>
   );
 }
 // now Authorized User
@@ -44,13 +47,15 @@ function Guest() {
 function User({ session, handleSignOut }) {
   return (
     <main className="container mx-auto text-center py-20">
-      <h3 className="text-4xl font-bold">
-        Authorized User Homepage, Good to have you!
+      <h3 className="text-4xl text-slate-700 font-bold py-10">
+        Good to have you...back?!
       </h3>
 
       <div className="details">
-        <h5>{session.user.name}</h5>
-        <h5>{session.user.email}</h5>
+        <h5 className="text-3xl text-cyan-900 font-semibold ">
+          {session.user.name}
+        </h5>
+        <h5 className="text-1xl text-slate-500  ">{session.user.email}</h5>
       </div>
 
       <div className="flex justify-center">

@@ -38,7 +38,7 @@ export default function Register() {
   }
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Register</title>
       </Head>
@@ -63,6 +63,7 @@ export default function Register() {
               name="Username"
               placeholder="Username"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("username")}
             />
             <span className="icon flex items-center px-4">
@@ -86,6 +87,7 @@ export default function Register() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
@@ -111,6 +113,7 @@ export default function Register() {
               name="password"
               placeholder="Password"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("password")}
             />
             <span
@@ -139,6 +142,7 @@ export default function Register() {
               name="confirmPassword"
               placeholder="Confirm Password"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("confirmPassword")}
             />
             <span
@@ -173,6 +177,6 @@ export default function Register() {
           </Link>
         </p>
       </section>
-    </Layout>
+    </>
   );
 }

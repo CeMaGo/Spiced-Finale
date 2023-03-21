@@ -25,15 +25,15 @@ export default function Login() {
       email: "",
       password: "",
     },
+
     //receives from /lib/validation.js
     validate: login_validate,
     onSubmit,
   });
-
   console.log(formik.errors);
 
   async function onSubmit(values) {
-    const status = await signIn("credentials", {
+    const status = await signIn("Credentials", {
       redirect: false,
       email: values.email,
       password: values.password,
@@ -47,14 +47,14 @@ export default function Login() {
     signIn(`github`, { callbackUrl: "http://localhost:3000" });
   }
   return (
-    <Layout>
+    <layout>
       <Head>
         <title>Login</title>
       </Head>
 
       <section className="w-3/4 mx-auto flex flex-col gap-8 ">
         <div className="title">
-          <h1 className="text-gray-800 text-4xl font-bold py-4">Boarding</h1>
+          <h1 className="text-gray-800 text-4xl font-bold py-4">Login</h1>
           <p className=" w-4/4 mx-auto text-gray-400">
             There ain't no rest for the Wicked
           </p>
@@ -74,6 +74,7 @@ export default function Login() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
@@ -97,6 +98,7 @@ export default function Login() {
               name="password"
               placeholder="Password"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("password")}
             />
             <span
@@ -140,6 +142,6 @@ export default function Login() {
           </Link>
         </p>
       </section>
-    </Layout>
+    </layout>
   );
 }
