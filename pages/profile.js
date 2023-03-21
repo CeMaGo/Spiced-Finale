@@ -7,7 +7,7 @@ export default () => {
       <h3 className="text-4xl font-bold">Profile Page</h3>
       <Link href={"/"}>Home Page</Link>
     </section>,
-  )
+  );
 };
 
 export async function getServerSideProps({ req }) {

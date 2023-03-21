@@ -3,7 +3,12 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import Image from "next/image";
-import { HiAtSymbol, HiEyeOff, HiFingerPrint } from "react-icons/hi";
+import {
+  HiAtSymbol,
+  HiEyeOff,
+  HiFingerPrint,
+  HiOutlineMail,
+} from "react-icons/hi";
 import { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
 import { useFormik } from "formik";
@@ -72,7 +77,7 @@ export default function Login() {
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
-              <HiAtSymbol size={25} />
+              <HiOutlineMail size={25} />
             </span>
           </div>
           {formik.errors.email && formik.touched.email ? (
@@ -123,12 +128,6 @@ export default function Login() {
               className={styles.button_custom}
             >
               Sign in with Github <FaGithub size={25} />
-              {/* <Image
-                src={"/assets/github.svg"}
-                width={25}
-                height={25}
-                alt="Github space-Kitten Logo"
-              ></Image> */}
             </button>
           </div>
         </form>

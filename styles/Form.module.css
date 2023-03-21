@@ -9,7 +9,7 @@
 }
 
 .button {
-  @apply w-full bg-gradient-to-r from-violet-500 to-indigo-500 rounded-md;
+  @apply w-full bg-gradient-to-br from-violet-500 to-indigo-500 rounded-md;
   @apply py-3 text-gray-50 text-lg;
 }
 
@@ -17,11 +17,14 @@
   @apply bg-gradient-to-r from-gray-50 to-gray-100 border-blue-500;
   @apply text-gray-700 border;
 }
-
-.buttom_custom {
+.button_custom {
   @apply w-full border py-3 flex justify-center gap-2 hover:bg-gray-200;
 }
 
+.button_custom {
+  @apply w-full bg-gradient-to-br from-violet-500 to-indigo-500 rounded-md;
+  @apply py-3 text-gray-50 text-lg;
+}
 .input_text + * {
   color: #cbd5e1;
 }

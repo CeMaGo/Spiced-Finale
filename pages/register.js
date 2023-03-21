@@ -1,12 +1,7 @@
 import Layout from "@/layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
-import {
-  HiAtSymbol,
-  HiEyeOff,
-  HiFingerPrint,
-  HiOutlineUser,
-} from "react-icons/hi";
+import { HiEyeOff, HiOutlineMail, HiOutlineEyeOff } from "react-icons/hi";
 import { FaUserAstronaut } from "react-icons/fa";
 import { useState } from "react";
 import { useFormik } from "formik";
@@ -94,7 +89,7 @@ export default function Register() {
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
-              <HiAtSymbol size={25} />
+              <HiOutlineMail size={25} />
             </span>
             {/* {formik.errors.email && formik.touched.email ? (
               <span className="text-rose-600">{formik.errors.email}</span>
@@ -122,7 +117,7 @@ export default function Register() {
               className="icon flex items-center px-4"
               onClick={() => setShow({ ...show, password: !show.password })}
             >
-              <HiEyeOff size={25} />
+              <HiOutlineEyeOff size={25} />
             </span>
             {formik.errors.password && formik.touched.password ? (
               <span className="text-rose-600">{formik.errors.password}</span>
