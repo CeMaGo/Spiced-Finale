@@ -2,13 +2,7 @@ import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
-import Image from "next/image";
-import {
-  HiAtSymbol,
-  HiEyeOff,
-  HiFingerPrint,
-  HiOutlineMail,
-} from "react-icons/hi";
+import { HiEyeOff, HiOutlineMail } from "react-icons/hi";
 import { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
 import { useFormik } from "formik";
@@ -27,6 +21,7 @@ export default function Login() {
     },
 
     //receives from /lib/validation.js
+    // validate: login_validate,
     validate: login_validate,
     onSubmit,
   });
@@ -39,7 +34,7 @@ export default function Login() {
       password: values.password,
       callbackUrl: "/",
     });
-    console.log(status);
+    console.log("status", status);
     if (status.ok) router.push(status.url);
   }
   // Github SignIn
@@ -56,7 +51,7 @@ export default function Login() {
         <div className="title">
           <h1 className="text-gray-800 text-4xl font-bold py-4">Login</h1>
           <p className=" w-4/4 mx-auto text-gray-400">
-            There ain't no rest for the Wicked
+            There ain't No rest for the Wicked
           </p>
         </div>
 
@@ -74,7 +69,6 @@ export default function Login() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
@@ -98,7 +92,6 @@ export default function Login() {
               name="password"
               placeholder="Password"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("password")}
             />
             <span

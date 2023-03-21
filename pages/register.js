@@ -24,7 +24,7 @@ export default function Register() {
   });
 
   async function onSubmit(values) {
-    console.log(values);
+    console.log("Values", values);
     const options = {
       method: "POST",
       header: { "Content-Type": "application/json" },
@@ -63,14 +63,13 @@ export default function Register() {
               name="Username"
               placeholder="Username"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
-              {...formik.getFieldProps("username")}
+              {...formik.getFieldProps("Username")}
             />
             <span className="icon flex items-center px-4">
               <FaUserAstronaut size={25} />
             </span>
-            {formik.errors.username && formik.touched.username ? (
-              <span className="text-rose-600">{formik.errors.username}</span>
+            {formik.errors.Username && formik.touched.Username ? (
+              <span className="text-rose-600">{formik.errors.Username}</span>
             ) : (
               <></>
             )}
@@ -87,17 +86,16 @@ export default function Register() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
               <HiOutlineMail size={25} />
             </span>
-            {/* {formik.errors.email && formik.touched.email ? (
+            {formik.errors.email && formik.touched.email ? (
               <span className="text-rose-600">{formik.errors.email}</span>
             ) : (
               <></>
-            )} */}
+            )}
           </div>
 
           <div
@@ -113,7 +111,6 @@ export default function Register() {
               name="password"
               placeholder="Password"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("password")}
             />
             <span
@@ -142,7 +139,6 @@ export default function Register() {
               name="confirmPassword"
               placeholder="Confirm Password"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("confirmPassword")}
             />
             <span
