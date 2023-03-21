@@ -1,19 +1,20 @@
 import Layout from "@/layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
-import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from "react-icons/hi";
+import { HiEyeOff, HiOutlineMail, HiOutlineEyeOff } from "react-icons/hi";
+import { FaUserAstronaut } from "react-icons/fa";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { registerValidate } from "@/lib/validation";
-import { useRouter, router } from "next/router";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 export default function Register() {
   const [show, setShow] = useState({ password: false, confirmPassword: false });
   const router = useRouter();
-  const formic = useFormik({
+  const formik = useFormik({
     initialValues: {
-      username: "",
+      Username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -37,7 +38,7 @@ export default function Register() {
   }
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>Register</title>
       </Head>
@@ -62,10 +63,11 @@ export default function Register() {
               name="Username"
               placeholder="Username"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("username")}
             />
             <span className="icon flex items-center px-4">
-              <HiOutlineUser size={25} />
+              <FaUserAstronaut size={25} />
             </span>
             {formik.errors.username && formik.touched.username ? (
               <span className="text-rose-600">{formik.errors.username}</span>
@@ -85,16 +87,17 @@ export default function Register() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
-              <HiAtSymbol size={25} />
+              <HiOutlineMail size={25} />
             </span>
-            {formik.errors.email && formik.touched.email ? (
+            {/* {formik.errors.email && formik.touched.email ? (
               <span className="text-rose-600">{formik.errors.email}</span>
             ) : (
               <></>
-            )}
+            )} */}
           </div>
 
           <div
@@ -110,16 +113,17 @@ export default function Register() {
               name="password"
               placeholder="Password"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("password")}
             />
             <span
               className="icon flex items-center px-4"
               onClick={() => setShow({ ...show, password: !show.password })}
             >
-              <HiFingerPrint size={25} />
+              <HiOutlineEyeOff size={25} />
             </span>
-            {formik.error.password && formik.touched.password ? (
-              <span className="text-rose-600">{formic.error.password}</span>
+            {formik.errors.password && formik.touched.password ? (
+              <span className="text-rose-600">{formik.errors.password}</span>
             ) : (
               <></>
             )}
@@ -138,6 +142,7 @@ export default function Register() {
               name="confirmPassword"
               placeholder="Confirm Password"
               className={styles.input_text}
+              onBlur={formik.handleBlur}
               {...formik.getFieldProps("confirmPassword")}
             />
             <span
@@ -146,7 +151,7 @@ export default function Register() {
                 setShow({ ...show, confirmPassword: !show.confirmPassword })
               }
             >
-              <HiFingerPrint size={25} />
+              <HiEyeOff size={25} />
             </span>
             {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
               <span className="text-rose-600 ">
@@ -166,11 +171,12 @@ export default function Register() {
         {/* bottom */}
         <p className="text-gray-400 text-center ">
           Already have an account?
-          <Link href={"/login"} className="text-pink-700">
+          <Link href={"/login"} className="text-indigo-800">
+            <br />
             Sign In
           </Link>
         </p>
       </section>
-    </Layout>
+    </>
   );
 }
