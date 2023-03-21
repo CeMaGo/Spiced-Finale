@@ -9,6 +9,7 @@ import { signIn, signOut } from "next-auth/react";
 import { useFormik } from "formik";
 import login_validate from "@/lib/validation";
 import { useRouter } from "next/router";
+import { FaGithub } from "react-icons/fa";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -121,13 +122,13 @@ export default function Login() {
               type="button"
               className={styles.button_custom}
             >
-              Sign in with Github{" "}
-              <Image
+              Sign in with Github <FaGithub size={25} />
+              {/* <Image
                 src={"/assets/github.svg"}
                 width={25}
                 height={25}
                 alt="Github space-Kitten Logo"
-              ></Image>
+              ></Image> */}
             </button>
           </div>
         </form>

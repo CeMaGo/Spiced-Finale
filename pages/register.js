@@ -7,6 +7,7 @@ import {
   HiFingerPrint,
   HiOutlineUser,
 } from "react-icons/hi";
+import { FaUserAstronaut } from "react-icons/fa";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { registerValidate } from "@/lib/validation";
@@ -70,7 +71,7 @@ export default function Register() {
               {...formik.getFieldProps("username")}
             />
             <span className="icon flex items-center px-4">
-              <HiOutlineUser size={25} />
+              <FaUserAstronaut size={25} />
             </span>
             {formik.errors.username && formik.touched.username ? (
               <span className="text-rose-600">{formik.errors.username}</span>
@@ -146,8 +147,7 @@ export default function Register() {
               {...formik.getFieldProps("confirmPassword")}
             />
             <span
-              className="icon flex items-center px-3
-              "
+              className="icon flex items-center px-4"
               onClick={() =>
                 setShow({ ...show, confirmPassword: !show.confirmPassword })
               }
