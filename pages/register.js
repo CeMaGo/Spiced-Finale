@@ -22,7 +22,7 @@ export default function Register() {
     validate: registerValidate,
     onSubmit,
   });
-
+  //passing Data to the backend
   async function onSubmit(values) {
     console.log("Values", values);
     const options = {

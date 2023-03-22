@@ -11,14 +11,13 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    // ],
+
     CredentialsProvider({
       name: "Credentials",
       async authorize(credentials, req) {
         connectMongo().catch((error) => {
           error: "Connection Failed...!";
         });
-
         // check if user is already existing
         const result = await Users.findOne({ email: credentials.email });
         if (!result) {
