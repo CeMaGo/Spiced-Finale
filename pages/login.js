@@ -21,7 +21,6 @@ export default function Login() {
     },
 
     //receives from /lib/validation.js
-    // validate: login_validate,
     validate: login_validate,
     onSubmit,
   });
@@ -51,7 +50,7 @@ export default function Login() {
         <div className="title">
           <h1 className="text-gray-800 text-4xl font-bold py-4">Login</h1>
           <p className=" w-4/4 mx-auto text-gray-400">
-            There ain't No rest for the Wicked
+            There ain't no rest for the Wicked
           </p>
         </div>
 
@@ -75,13 +74,13 @@ export default function Login() {
               <HiOutlineMail size={25} />
             </span>
           </div>
-          {formik.errors.email && formik.touched.email ? (
+          {/* {formik.errors.email && formik.touched.email ? (
             <span className="text-rose-400">{formik.errors.email}</span>
           ) : (
             <></>
-          )}
+          )} */}
           <div
-            className={`${styles.input_group}${
+            className={`${styles.input_group} ${
               formik.errors.password && formik.touched.password
                 ? "border-rose-600"
                 : ""
@@ -103,19 +102,17 @@ export default function Login() {
               <HiEyeOff size={25} />
             </span>
           </div>
-          {formik.errors.password && formik.touched.password ? (
+          {/* {formik.errors.password && formik.touched.password ? (
             <span className="text-rose-500">{formik.errors.password}</span>
           ) : (
             <></>
-          )}
-
+          )} */}
           {/* login buttons */}
           <div className="input-button">
             <button type="submit" className={styles.button}>
               Login
             </button>
           </div>
-
           <div className="input-button">
             <button
               onClick={handleGithubSignIn}

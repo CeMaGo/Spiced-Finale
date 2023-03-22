@@ -52,7 +52,7 @@ export default function Register() {
         {/* form */}
         <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
           <div
-            className={`${styles.input_group}${
+            className={`${styles.input_group} ${
               formik.errors.Username && formik.touched.Username
                 ? "border-rose-600"
                 : ""
@@ -68,15 +68,15 @@ export default function Register() {
             <span className="icon flex items-center px-4">
               <FaUserAstronaut size={25} />
             </span>
-            {formik.errors.Username && formik.touched.Username ? (
+            {/* {formik.errors.Username && formik.touched.Username ? (
               <span className="text-rose-600">{formik.errors.Username}</span>
             ) : (
               <></>
-            )}
+            )} */}
           </div>
           <div
-            className={`${styles.input_group}${
-              formik.errors.Username && formik.touched.Username
+            className={`${styles.input_group} ${
+              formik.errors.email && formik.touched.email
                 ? "border-rose-600"
                 : ""
             }`}
@@ -91,16 +91,16 @@ export default function Register() {
             <span className="icon flex items-center px-4">
               <HiOutlineMail size={25} />
             </span>
-            {formik.errors.email && formik.touched.email ? (
+            {/* {formik.errors.email && formik.touched.email ? (
               <span className="text-rose-600">{formik.errors.email}</span>
             ) : (
               <></>
-            )}
+            )} */}
           </div>
 
           <div
-            className={`${styles.input_group}${
-              formik.errors.username && formik.touched.username
+            className={`${styles.input_group} ${
+              formik.errors.password && formik.touched.password
                 ? "border-rose-600"
                 : ""
             }`}
@@ -119,17 +119,17 @@ export default function Register() {
             >
               <HiOutlineEyeOff size={25} />
             </span>
-            {formik.errors.password && formik.touched.password ? (
+            {/* {formik.errors.password && formik.touched.password ? (
               <span className="text-rose-600">{formik.errors.password}</span>
             ) : (
               <></>
-            )}
+            )} */}
           </div>
 
           {/* confirm password */}
           <div
-            className={`${styles.input_group}${
-              formik.errors.username && formik.touched.username
+            className={`${styles.input_group} ${
+              formik.errors.confirmPassword && formik.touched.confirmPassword
                 ? "border-rose-600"
                 : ""
             }`}
@@ -149,13 +149,13 @@ export default function Register() {
             >
               <HiEyeOff size={25} />
             </span>
-            {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
+            {/* {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
               <span className="text-rose-600 ">
                 {formik.errors.confirmPassword}
               </span>
             ) : (
               <></>
-            )}
+            )} */}
           </div>
           {/* login buttons */}
           <div className="input-button">
