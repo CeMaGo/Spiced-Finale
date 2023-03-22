@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export default () => {
   return (
-    <Layout>
+
       <section className="container mx-auto text-center ">
         <h3 className="text-4xl font-bold">Profile Page</h3>
         <Link href={"/profile"}>Home Page</Link>
       </section>
-    </Layout>,
+  ,
   );
 };
 
