@@ -27,7 +27,7 @@ export default function Login() {
   console.log(formik.errors);
 
   async function onSubmit(values) {
-    const status = await signIn("Credentials", {
+    const status = await signIn("credentials", {
       redirect: false,
       email: values.email,
       password: values.password,
