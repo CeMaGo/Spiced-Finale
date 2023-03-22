@@ -53,7 +53,7 @@ export default function Register() {
         <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
           <div
             className={`${styles.input_group}${
-              formik.errors.username && formik.touched.username
+              formik.errors.Username && formik.touched.Username
                 ? "border-rose-600"
                 : ""
             }`}
@@ -76,7 +76,7 @@ export default function Register() {
           </div>
           <div
             className={`${styles.input_group}${
-              formik.errors.username && formik.touched.username
+              formik.errors.Username && formik.touched.Username
                 ? "border-rose-600"
                 : ""
             }`}

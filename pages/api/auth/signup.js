@@ -1,4 +1,4 @@
-import connectMongo from "@/database/connectDb";
+import connectMongo from "@/database/dbConnect";
 import Users from "@/model/schema";
 import { hash } from "bcryptjs";
 
@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   connectMongo().catch((error) =>
     res.json({ error: "Connection Failed to execute" })
   );
-
+  console.log(error);
   //only POST method is accepted
 
   if (req.method === "POST") {

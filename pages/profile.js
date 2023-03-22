@@ -4,16 +4,17 @@ import Link from "next/link";
 
 export default () => {
   return (
-   
+    <Layout>
       <section className="container mx-auto text-center ">
         <h3 className="text-4xl font-bold">Profile Page</h3>
-        <Link href={"/"}>Home Page</Link>
-      </section>,
+        <Link href={"/profile"}>Home Page</Link>
+      </section>
+    </Layout>,
   );
 };
 
 export async function getServerSideProps({ req }) {
-  const session = await getSession();
+  const session = await getSession({ req });
 
   if (!session) {
     return {

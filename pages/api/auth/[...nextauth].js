@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 // import CredentialProvider from "next-auth/providers";
-import connectMongo from "@/database/connectDb";
+import connectMongo from "@/database/dbConnect";
 import { compare } from "bcryptjs";
 import Users from "@/model/schema";
 // import { compare } from "bcryptjs";
