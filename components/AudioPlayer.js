@@ -1,17 +1,19 @@
-import React from "react";
+import React {useState} from "react";
 import { BsGooglePlay } from "react-icons/bs";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { HiArrowSmLeft } from "react-icons/hi";
 import { GiPauseButton } from "react-icons/gi";
 import Styles from "../styles/AudioPlayer.module.css";
+import { useState } from "react";
 
 const AudioPlayer = () => {
+  const [isPlaying,setIsPlaying] = useState(false)
   return (
     <div className="audioPlayer text-3xl text-slate-600">
       <h4 className="text-3xl text-slate-600"> Audio Player</h4>
 
       <button>
-        <FaArrowLeft /> 30 30
+        <FaArrowLeft />
       </button>
       <button>
         <BsGooglePlay />
