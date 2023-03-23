@@ -17,6 +17,7 @@ export default NextAuth({
       async authorize(credentials, req) {
         connectMongo().catch((error) => {
           error: "Connection Failed...!";
+          console.log("req:", req, "err:", error);
         });
         // check if user is already existing
         const result = await Users.findOne({ email: credentials.email });
