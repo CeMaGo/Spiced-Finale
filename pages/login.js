@@ -1,4 +1,3 @@
-import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";

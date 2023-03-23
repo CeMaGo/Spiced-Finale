@@ -1,4 +1,3 @@
-import Layout from "@/layout/layout";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
 import { HiEyeOff, HiOutlineMail, HiOutlineEyeOff } from "react-icons/hi";
@@ -33,7 +32,7 @@ export default function Register() {
     await fetch("http://localhost:3000/api/auth/signup", options)
       .then((res) => res.json())
       .then((data) => {
-        if (data) router.push("http://localhost:3000");
+        if (data) router.push("http://localhost:3000/profile");
       });
   }
 
@@ -68,11 +67,6 @@ export default function Register() {
             <span className="icon flex items-center px-4">
               <FaUserAstronaut size={25} />
             </span>
-            {/* {formik.errors.Username && formik.touched.Username ? (
-              <span className="text-rose-600">{formik.errors.Username}</span>
-            ) : (
-              <></>
-            )} */}
           </div>
           <div
             className={`${styles.input_group} ${
@@ -91,11 +85,6 @@ export default function Register() {
             <span className="icon flex items-center px-4">
               <HiOutlineMail size={25} />
             </span>
-            {/* {formik.errors.email && formik.touched.email ? (
-              <span className="text-rose-600">{formik.errors.email}</span>
-            ) : (
-              <></>
-            )} */}
           </div>
 
           <div
@@ -119,11 +108,6 @@ export default function Register() {
             >
               <HiOutlineEyeOff size={25} />
             </span>
-            {/* {formik.errors.password && formik.touched.password ? (
-              <span className="text-rose-600">{formik.errors.password}</span>
-            ) : (
-              <></>
-            )} */}
           </div>
 
           {/* confirm password */}
@@ -149,13 +133,6 @@ export default function Register() {
             >
               <HiEyeOff size={25} />
             </span>
-            {/* {formik.errors.confirmPassword && formik.touched.confirmPassword ? (
-              <span className="text-rose-600 ">
-                {formik.errors.confirmPassword}
-              </span>
-            ) : (
-              <></>
-            )} */}
           </div>
           {/* login buttons */}
           <div className="input-button">
