@@ -40,3 +40,10 @@ next up...
 - move to vercel
 
 - built player and landing page
+
+## 2 Audio Player
+
+- W3 School Audio Tag (https://www.w3schools.com/tags/tag_audio.asp)
+- HTML Reference (https://www.w3schools.com/tags/ref_av_dom.asp)
+
+- MDN web audio api doc (https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
