@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import login_validate from "@/lib/validation";
 import { useRouter } from "next/router";
 import { FaGithub } from "react-icons/fa";
+import Layout from "@/layout/layout";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -40,7 +41,7 @@ export default function Login() {
     signIn(`github`, { callbackUrl: "http://localhost:3000" });
   }
   return (
-    <layout>
+    <>
       <Head>
         <title>Login</title>
       </Head>
@@ -131,6 +132,6 @@ export default function Login() {
           </Link>
         </p>
       </section>
-    </layout>
+    </>
   );
 }
