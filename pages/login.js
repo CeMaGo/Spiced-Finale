@@ -11,8 +11,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Login() {
   const [show, setShow] = useState(false);
-  const router = useRouter;
-  //formik hook
+  const router = useRouter();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,8 +22,7 @@ export default function Login() {
     validate: login_validate,
     onSubmit,
   });
-  console.log(formik.errors);
-
+  //============================>>>>>*<<<<<===========================\\
   async function onSubmit(values) {
     const status = await signIn("credentials", {
       redirect: false,
@@ -32,7 +30,9 @@ export default function Login() {
       password: values.password,
       callbackUrl: "/",
     });
-    console.log("status", status);
+    //============================>>>>>*<<<<<===========================\\
+    console.log("status /login.js", status);
+
     if (status.ok) router.push(status.url);
   }
   // Github SignIn

@@ -4,7 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import connectMongo from "@/database/dbConnect";
 import { compare } from "bcryptjs";
 import Users from "@/model/schema";
-// import { compare } from "bcryptjs";
+
 export default NextAuth({
   providers: [
     GithubProvider({
@@ -17,7 +17,7 @@ export default NextAuth({
       async authorize(credentials, req) {
         connectMongo().catch((error) => {
           error: "Connection Failed...!";
-          console.log("req:", req, "err:", error);
+          console.log("[...nextauth].js /req:", req, "err:", error);
         });
         // check if user is already existing
         const result = await Users.findOne({ email: credentials.email });
@@ -25,7 +25,9 @@ export default NextAuth({
           throw new Error(
             " A User with the given Email does not exist, please Sign Up!"
           );
-        } // User does exist, now compare passwords..
+        }
+
+        // User does exist, now compare passwords..
         const checkPassword = await compare(
           credentials.password,
           result.password

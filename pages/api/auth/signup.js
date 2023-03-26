@@ -6,12 +6,14 @@ export default async function handler(req, res) {
   connectMongo().catch((error) =>
     res.json({ error: "Connection Failed to execute" })
   );
+
   //only POST method is accepted
 
   if (req.method === "POST") {
     if (!req.body)
       return res.status(404).json({ error: "Form data missing..!" });
     const { username, email, password } = req.body;
+
     //check for duplicate Users
     const checkExistingUser = await Users.findOne({ email });
     if (checkExistingUser)
@@ -22,7 +24,11 @@ export default async function handler(req, res) {
       { username, email, password: await hash(password, 12) },
       function (err, data) {
         if (err) return res.status(404).json({ err });
-        return res.status(201).json({ status: true, User: data });
+        return (
+          res.status(201).json({ status: true, User: data }),
+          //================================================>>>>>*<<<<<==================================\\
+          console.log("user was created")
+        );
       }
     );
   } else {
