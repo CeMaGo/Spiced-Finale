@@ -37,3 +37,15 @@
   color: #6366f1;
   cursor: pointer;
 }
+
+.bubble_wrap {
+  @apply flex gap-2 flex-wrap bg-pink-400;
+}
+
+.button_bubble {
+  @apply w-12 h-12 shadow-inner bg-gradient-to-br from-rose-400 to-indigo-500 rounded-full;
+  @apply m-1 text-sm text-transparent  bg-gradient-to-r from-purple-400 to-pink-600;
+}
+
+.button_bubble:active {
+}

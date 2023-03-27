@@ -1,7 +1,8 @@
 import React from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
-import MusicBubbles from "@/components";
-import Koshi from "/public/Sounds";
+import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
+// import Koshi from "/public/Sounds";
+
 function Player() {
   return (
     <div>
