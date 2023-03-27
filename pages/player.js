@@ -1,6 +1,7 @@
 import React from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
+
 // import Koshi from "/public/Sounds";
 
 function Player() {
@@ -8,7 +9,31 @@ function Player() {
     <div>
       <MusicBubbles />
       <br />
-      {/* <AudioPlayer /> */}
+      {/* <AudioPlayer src="../public/Sounds/Koshi/Aria.mp3" /> */}
+      <div
+        onClick={() => {
+          console.log("koshi clicked"), source.play();
+        }}
+      >
+        Play koshi
+        <audio controls src="../public/Sounds/Koshi/Aria.mp3">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+        <br />
+        <audio
+          controls
+          src="../public/Sounds/Koshi/Auqua.mp3"
+          typeof="audio/.mp3"
+        >
+          <source src="../public/Sounds/Koshi/Terra2.mp3" />
+        </audio>
+        <br />
+        <audio controls="controls" preload="../public/Sounds/Koshi/Ignis.mp3">
+          <source src="../public/Sounds/Koshi/Ignis.mp3" type="audio/mpeg" />
+          Your browser does not support the audio tag.
+        </audio>
+      </div>
     </div>
   );
 }

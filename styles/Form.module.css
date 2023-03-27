@@ -47,5 +47,7 @@
   @apply m-1 text-sm text-transparent  bg-gradient-to-r from-purple-400 to-pink-600;
 }
 
-.button_bubble:active {
+.button_bubble:hover {
+  background: lightgrey;
+  transparent: 5;
 }
