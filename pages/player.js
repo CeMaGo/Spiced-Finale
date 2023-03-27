@@ -1,13 +1,13 @@
 import React from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
-import KoshiButton from "@/components/KoshiButton";
-
+import MusicBubbles from "@/components";
+import Koshi from "/public/Sounds";
 function Player() {
   return (
     <div>
-      <KoshiButton />
+      <MusicBubbles />
       <br />
-      <AudioPlayer />
+      {/* <AudioPlayer /> */}
     </div>
   );
 }
