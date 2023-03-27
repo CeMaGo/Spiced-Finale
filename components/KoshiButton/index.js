@@ -1,5 +1,5 @@
 import React from "react";
-import { Aria } from "../../assets/Koshi/Aria.mp3";
+// import { Aria } from "../../assets/Koshi/Aria.mp3";
 
 export default function KoshiButton() {
   function play() {
@@ -12,7 +12,7 @@ export default function KoshiButton() {
     //   </div>
     // </div>
     <div>
-      <button onClick={play}>
+      <button onClick={() => this.play()}>
         Click
         <audio id="a1">
           <source src="../../assets/Koshi/Aria.mp3" type="audio/mpeg" />
