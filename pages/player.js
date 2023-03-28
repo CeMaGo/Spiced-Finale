@@ -1,9 +1,16 @@
 import React from "react";
+import { useRouter } from "next/router";
+import { BiWater } from "react-icons/bi";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
 import ReactAudioPlayer from "react-audio-player";
 
 // import Koshi from "/public/Sounds";
+function getAudioPath() {
+  const router = useRouter();
+  const { basePath } = router;
+  return `${basePath}/public/Sounds/Koshi/Aria.mp3`;
+}
 
 function Player() {
   return (
@@ -12,38 +19,26 @@ function Player() {
       <br />
       {/* <AudioPlayer src="../public/Sounds/Koshi/Aria.mp3" /> */}
       <div
-        onClick={() => {
-          console.log("koshi clicked"), source.play();
-        }}
+      // onClick={() => {
+      //   console.log("koshi clicked"), source.play();
+      // }}
       >
         Play koshi
-        <audio controls src="../public/Sounds/Koshi/Aria.mp3">
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio>
+        <title>🌎</title>
+        <audio controls src={"/Terra2.mp3"} title="🌎"></audio>
         <br />
-        <audio
-          controls
-          src="../public/Sounds/Koshi/Auqua.mp3"
-          typeof="audio/.mp3"
-        >
-          <source src="../public/Sounds/Koshi/Terra2.mp3" />
-        </audio>
+        <div>
+          <audio title="💧Water" controls tabindex="0">
+            <source src={"/Auqua.mp3"} type="audio/mpeg" />
+          </audio>
+        </div>
         <br />
-        <audio
-          autoPlay
-          controls="controls"
-          preload="../public/Sounds/Koshi/Ignis.mp3"
-        >
-          <source src="../public/Sounds/Koshi/Ignis.mp3" type="audio/mpeg" />
+        <audio autoPlay controls="controls">
+          <source src={"/Ignis.mp3"} type="audio/mpeg" />
           Your browser does not support the audio tag.
         </audio>
       </div>
-      <ReactAudioPlayer
-        src="../public/Sounds/Koshi/Aria.mp3"
-        autoPlay
-        controls
-      />
+      <ReactAudioPlayer src={"/Aria.mp3"} autoPlay controls type="audio/mpeg" />
     </div>
   );
 }

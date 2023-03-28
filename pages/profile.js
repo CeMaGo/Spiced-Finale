@@ -1,4 +1,4 @@
-import { AudioPlayer } from "@/components/audioplayer";
+import { AudioPlayer } from "@/components/AudioPlayer";
 import { getSession } from "next-auth/react";
 import Link from "next/link";
 
