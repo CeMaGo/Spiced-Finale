@@ -1,6 +1,7 @@
 import React from "react";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
+import ReactAudioPlayer from "react-audio-player";
 
 // import Koshi from "/public/Sounds";
 
@@ -29,11 +30,20 @@ function Player() {
           <source src="../public/Sounds/Koshi/Terra2.mp3" />
         </audio>
         <br />
-        <audio controls="controls" preload="../public/Sounds/Koshi/Ignis.mp3">
+        <audio
+          autoPlay
+          controls="controls"
+          preload="../public/Sounds/Koshi/Ignis.mp3"
+        >
           <source src="../public/Sounds/Koshi/Ignis.mp3" type="audio/mpeg" />
           Your browser does not support the audio tag.
         </audio>
       </div>
+      <ReactAudioPlayer
+        src="../public/Sounds/Koshi/Aria.mp3"
+        autoPlay
+        controls
+      />
     </div>
   );
 }
