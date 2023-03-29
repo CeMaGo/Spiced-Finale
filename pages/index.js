@@ -6,7 +6,7 @@ import { useSession, getSession, signOut } from "next-auth/react";
 import Layout from "@/layout/layout";
 
 export default function Home() {
-  // const [Session, setSession] = useState(false);
+  // const [Session, setSession] = useState(true);
   const { data: session } = useSession();
 
   function handleSignOut() {
@@ -90,7 +90,7 @@ export async function getServerSideProps({ req }) {
       },
     };
   }
-
+  console.log("session success");
   return {
     props: { session },
   };

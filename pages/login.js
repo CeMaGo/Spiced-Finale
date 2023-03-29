@@ -1,25 +1,18 @@
-import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Form.module.css";
-import Image from "next/image";
-import {
-  HiAtSymbol,
-  HiEyeOff,
-  HiFingerPrint,
-  HiOutlineMail,
-} from "react-icons/hi";
+import { HiEyeOff, HiOutlineMail } from "react-icons/hi";
 import { useState } from "react";
 import { signIn, signOut } from "next-auth/react";
 import { useFormik } from "formik";
 import login_validate from "@/lib/validation";
 import { useRouter } from "next/router";
 import { FaGithub } from "react-icons/fa";
+import Layout from "@/layout/layout";
 
 export default function Login() {
   const [show, setShow] = useState(false);
-  const router = useRouter;
-  //formik hook
+  const router = useRouter();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -30,16 +23,17 @@ export default function Login() {
     validate: login_validate,
     onSubmit,
   });
-  console.log(formik.errors);
-
+  //============================>>>>>*<<<<<===========================\\
   async function onSubmit(values) {
-    const status = await signIn("Credentials", {
+    const status = await signIn("credentials", {
       redirect: false,
       email: values.email,
       password: values.password,
       callbackUrl: "/",
     });
-    console.log(status);
+    //============================>>>>>*<<<<<===========================\\
+    console.log("status /login.js", status);
+
     if (status.ok) router.push(status.url);
   }
   // Github SignIn
@@ -47,7 +41,7 @@ export default function Login() {
     signIn(`github`, { callbackUrl: "http://localhost:3000" });
   }
   return (
-    <layout>
+    <>
       <Head>
         <title>Login</title>
       </Head>
@@ -74,20 +68,19 @@ export default function Login() {
               name="email"
               placeholder="Email"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("email")}
             />
             <span className="icon flex items-center px-4">
               <HiOutlineMail size={25} />
             </span>
           </div>
-          {formik.errors.email && formik.touched.email ? (
+          {/* {formik.errors.email && formik.touched.email ? (
             <span className="text-rose-400">{formik.errors.email}</span>
           ) : (
             <></>
-          )}
+          )} */}
           <div
-            className={`${styles.input_group}${
+            className={`${styles.input_group} ${
               formik.errors.password && formik.touched.password
                 ? "border-rose-600"
                 : ""
@@ -98,7 +91,6 @@ export default function Login() {
               name="password"
               placeholder="Password"
               className={styles.input_text}
-              onBlur={formik.handleBlur}
               {...formik.getFieldProps("password")}
             />
             <span
@@ -110,19 +102,17 @@ export default function Login() {
               <HiEyeOff size={25} />
             </span>
           </div>
-          {formik.errors.password && formik.touched.password ? (
+          {/* {formik.errors.password && formik.touched.password ? (
             <span className="text-rose-500">{formik.errors.password}</span>
           ) : (
             <></>
-          )}
-
+          )} */}
           {/* login buttons */}
           <div className="input-button">
             <button type="submit" className={styles.button}>
               Login
             </button>
           </div>
-
           <div className="input-button">
             <button
               onClick={handleGithubSignIn}
@@ -142,6 +132,6 @@ export default function Login() {
           </Link>
         </p>
       </section>
-    </layout>
+    </>
   );
 }
