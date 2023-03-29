@@ -51,3 +51,21 @@
   background: lightgrey;
   transparent: 5;
 }
+
+.button_bubble:active {
+  background: grey;
+  transparent: 10;
+}
+.button_bubble:focus {
+  @apply w-12 h-12 shadow-inner bg-gradient-to-br from-rose-400 to-indigo-500 rounded-full;
+  @apply m-1 text-sm text-transparent  bg-gradient-to-bl from-purple-400 to-pink-600;
+}
+
+/* .button_bubble_music {
+  @apply w-12 h-12 shadow-inner bg-gradient-to-br from-rose-400 to-indigo-500 rounded-full;
+  @apply m-1 text-sm text-transparent  bg-gradient-to-bl from-purple-400 to-pink-600;
+} */
+
+.audio {
+  @apply bg-rose-400;
+}

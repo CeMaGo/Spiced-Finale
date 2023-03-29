@@ -8,7 +8,7 @@ const sketch = () => {
   return ({ context, width, height }) => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
-    context.lineWidth = width * 0.0015;
+    context.lineWidth = width * 0.015;
     context.strokeStyle = "black";
     const w = width * 0.1;
     const h = height * 0.1;
