@@ -21,14 +21,16 @@ import { WiNightAltRainMix } from "react-icons/wi";
 import { HiOutlineBell } from "react-icons/hi";
 import { TbBellFilled } from "react-icons/tb";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
-import RecordingButton from "../components/RecordingButtons/RecordingButton";
+import RecordingButton from "../components/RecordingButtons/popButton.js";
 import ReactAudioPlayer from "react-audio-player";
+import UrgeWithPleasureComponent from "./countdown.js";
 
 function Player() {
   return (
     <div>
       {/* <RecordingButton /> */}
       <MusicBubbles />
+      <UrgeWithPleasureComponent />
       <section className="Music_Snippets">
         {" "}
         <div>
