@@ -16,7 +16,7 @@ import {
 import { WiNightAltRainMix } from "react-icons/wi";
 import { HiOutlineBell } from "react-icons/hi";
 import { TbBellFilled } from "react-icons/tb";
-import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
+import Bubbles from "@/components/MusicBubbles/MusicBubbles";
 import ReactAudioPlayer from "react-audio-player";
 import UrgeWithPleasureComponent from "../components/Countdown/Countdown";
 import CountCircles from "../components/Countdown/CountCircles";
@@ -24,12 +24,10 @@ function Player() {
   return (
     <div className=" grid bg-red-300">
       <div className="m-5"></div>
-      <MusicBubbles />
-      <span className="vh-8">
-        {" "}
+      <Bubbles />
+      <div className=" grid grid-flow-row mx-auto vh-8">
         <UrgeWithPleasureComponent className=" grid grid-cols-2" />
-      </span>
-      <UrgeWithPleasureComponent />
+      </div>
 
       <section className="Music_Snippets">
         <div>

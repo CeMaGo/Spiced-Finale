@@ -1,14 +1,14 @@
 import ColorSquare from "@/components/ColorSquare";
-import ColorBubbles from "@/components/ColorBubbles/ColorBubbles";
+import Tracks from "@/components/Tracks/Tracks";
 import React from "react";
 import Meditation from "../components/Meditation/Meditation";
-import UrgeWithPleasureComponent from "./countdown";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 function meditation() {
   return (
-    <div>
+    <div className=" h-screen">
       <Meditation />
-      <UrgeWithPleasureComponent />
+      <Tracks />
       <ColorSquare />
     </div>
   );
