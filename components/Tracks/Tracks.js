@@ -134,7 +134,7 @@ function Tracks() {
           className="w-125 h-36 "
           style={{ background: `${getRamboRainbowNumbers()}` }}
         >
-          <TbBellFilled className=" m-3 h-10 w-10 align-center justify-center text-amber-200 shadow rounded-full" />
+          <TbBellFilled className=" m-3 h-10 w-10 align-center justify-center text-orange-400 shadow rounded-full" />
           <audio
             loop
             controls
@@ -179,7 +179,7 @@ function Tracks() {
           className="w-125 h-36 "
           style={{ background: `${getRamboRainbowNumbers()}` }}
         >
-          <GiMagicLamp className=" m-3 h-10 w-10 align-center justify-center text-sky-500 shadow bg-slate-500 rounded-full" />
+          <GiMagicLamp className=" m-3 h-10 w-10 align-center justify-center text-amber-400 shadow bg-stone-400 rounded-full" />
           <audio
             loop
             controls
@@ -194,7 +194,7 @@ function Tracks() {
           className="w-125 h-36 "
           style={{ background: `${getRamboRainbowNumbers()}` }}
         >
-          <GiMagicSwirl className=" m-3 h-10 w-10 align-center justify-center text-sky-500 shadow rounded-full" />
+          <GiMagicSwirl className=" m-3 h-10 w-10 align-center justify-center text-purple-500 shadow rounded-full" />
           <audio
             loop
             controls
@@ -239,7 +239,7 @@ function Tracks() {
           className="w-125 h-36 "
           style={{ background: `${getRamboRainbowNumbers()}` }}
         >
-          <GiPsychicWaves className=" m-3 h-10 w-10 align-center justify-center text-sky-500 shadow rounded-full" />
+          <GiPsychicWaves className=" m-3 h-10 w-10 align-center justify-center text-fuchsia-600 shadow rounded-full" />
           <audio
             loop
             controls

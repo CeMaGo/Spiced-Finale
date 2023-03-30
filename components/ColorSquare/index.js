@@ -12,10 +12,12 @@ export default function ColorSquare() {
       <div className="grid grid-cols-4 grid-flow-cols gap-2 mr-2">
         <div
           className="rounded-full"
-          style={{ background: `${getRamboRainbowNumbers()}` }}
+          style={{
+            background: `${getRamboRainbowNumbers()}`,
+            color: `${getRamboRainbowNumbers()}`,
+          }}
         >
-          {" "}
-          01
+          Love will tear us apart and then pull us close
         </div>
         <div
           className="rounded-full"

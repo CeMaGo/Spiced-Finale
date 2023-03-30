@@ -12,7 +12,7 @@ const UrgeWithPleasureComponent = () => (
     >
       {({ remainingTime }) => remainingTime}
     </CountdownCircleTimer> */}
-    <div className="bg-sky-200 my-auto">
+    <div className="bg-sky-200 my-auto justify-center">
       <CountdownCircleTimer
         isPlaying
         duration={60 * 2}
