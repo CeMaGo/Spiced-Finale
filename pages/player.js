@@ -1,8 +1,5 @@
 import React from "react";
-import { BiWater } from "react-icons/bi";
-import { BsFire } from "react-icons/bs";
 import {
-  GiEarthAmerica,
   GiFeather,
   GiBanjo,
   GiMagicLamp,
@@ -16,25 +13,30 @@ import {
   GiNunFace,
   GiWaveSurfer,
 } from "react-icons/gi";
-import { MdOutlineAir } from "react-icons/md";
 import { WiNightAltRainMix } from "react-icons/wi";
 import { HiOutlineBell } from "react-icons/hi";
 import { TbBellFilled } from "react-icons/tb";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
-import RecordingButton from "../components/RecordingButtons/popButton.js";
 import ReactAudioPlayer from "react-audio-player";
 import UrgeWithPleasureComponent from "./countdown.js";
 
 function Player() {
   return (
-    <div>
+    <div className=" grid bg-red-300">
       {/* <RecordingButton /> */}
       <MusicBubbles />
-      <UrgeWithPleasureComponent />
-      <section className="Music_Snippets">
+      <span className="vh-8">
         {" "}
+        <UrgeWithPleasureComponent className="bg-slate-500" />
+      </span>
+      <UrgeWithPleasureComponent />
+
+      <section className="Music_Snippets">
         <div>
-          <WiNightAltRainMix className=" mx-3 h-10 w-10 align-center justify-center text-sky-500 shadow rounded-full" />
+          <WiNightAltRainMix
+            // onClick={handleIconClicked}
+            className=" mx-3 h-10 w-10 align-center justify-center text-sky-500 shadow rounded-full"
+          />
           <audio
             loop
             controls
@@ -242,56 +244,4 @@ function Player() {
     </div>
   );
 }
-
 export default Player;
-
-// const context = new AudioContext();
-
-// const tracks = [
-//   { url: "/audio/rain.mp3", volume: 0.5 },
-//   { url: "/audio/windchimes.mp3", volume: 0.8 },
-//   { url: "/audio/singingbowl.mp3", volume: 1.0 },
-// ];
-
-// const buffers = [];
-
-// Promise.all(
-//   tracks.map((track) =>
-//     fetch(track.url)
-//       .then((response) => response.arrayBuffer())
-//       .then((arrayBuffer) => context.decodeAudioData(arrayBuffer))
-//       .then((decodedBuffer) => buffers.push(decodedBuffer))
-//   )
-// ).then(() => {
-//   const sources = buffers.map((buffer, index) => {
-//     const source = context.createBufferSource();
-//     source.buffer = buffer;
-//     source.connect(context.destination);
-//     source.start(0);
-//     source.volume = tracks[index].volume;
-//     return source;
-//   });
-// });
-
-// const mediaRecorder = new MediaRecorder(context.destination.stream());
-
-// const chunks = [];
-
-// mediaRecorder.addEventListener("dataavailable", (event) => {
-//   chunks.push(event.data);
-// });
-
-// mediaRecorder.addEventListener("stop", () => {
-//   const blob = new Blob(chunks, { type: "audio/wav" });
-//   const url = URL.createObjectURL(blob);
-//   const link = document.createElement("a");
-//   link.href = url;
-//   link.download = "mix.wav";
-//   link.click();
-// });
-
-// mediaRecorder.start();
-
-// setTimeout(() => {
-//   mediaRecorder.stop();
-// }, 60000); // Stop recording after 60 seconds

@@ -1,9 +1,11 @@
+import { BulkOperationBase } from "mongodb";
+import { redirect } from "next/dist/server/api-utils";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const UrgeWithPleasureComponent = () => (
   <CountdownCircleTimer
     isPlaying
-    duration={70}
+    duration={120}
     colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
     colorsTime={[7, 5, 2, 0]}
   >
@@ -25,3 +27,8 @@ export default UrgeWithPleasureComponent;
 // col-span-0-9 grid layout in css
 
 //random color bubbles
+
+// fix the timer
+//hide the controls, get them on mouse over
+//fix the grid and style
+// mini animations
