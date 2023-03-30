@@ -39,7 +39,7 @@
 }
 
 .bubble_wrap {
-  @apply flex gap-2 flex-wrap bg-pink-400;
+  @apply flex gap-2 flex-wrap bg-pink-400 rounded m-2.5;
 }
 
 .button_bubble {

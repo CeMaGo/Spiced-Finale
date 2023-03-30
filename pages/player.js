@@ -18,16 +18,16 @@ import { HiOutlineBell } from "react-icons/hi";
 import { TbBellFilled } from "react-icons/tb";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
 import ReactAudioPlayer from "react-audio-player";
-import UrgeWithPleasureComponent from "./countdown.js";
-
+import UrgeWithPleasureComponent from "../components/Countdown/Countdown";
+import CountCircles from "../components/Countdown/CountCircles";
 function Player() {
   return (
     <div className=" grid bg-red-300">
-      {/* <RecordingButton /> */}
+      <div className="m-5"></div>
       <MusicBubbles />
       <span className="vh-8">
         {" "}
-        <UrgeWithPleasureComponent className="bg-slate-500" />
+        <UrgeWithPleasureComponent className=" grid grid-cols-2" />
       </span>
       <UrgeWithPleasureComponent />
 

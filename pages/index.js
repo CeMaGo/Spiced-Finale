@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { useSession, getSession, signOut } from "next-auth/react";
@@ -73,6 +73,15 @@ function User({ session, handleSignOut }) {
           className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
         >
           Profile Page
+        </Link>
+      </div>
+      <hr></hr>
+      <div className="flex justify-center">
+        <Link
+          href={"/player"}
+          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
+        >
+          Play
         </Link>
       </div>
     </main>

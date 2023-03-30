@@ -1,12 +1,8 @@
 import React from "react";
-import { AudioPlayer } from "@/components/Audioplayer/AudioPlayer";
 import MusicBubbles from "@/components/MusicBubbles/MusicBubbles";
-import useSound from "use-sound";
-// import Koshi from "/public/Sounds";
-
 function Bubbles() {
   return (
-    <div>
+    <div className="m-1 py-2.5">
       <MusicBubbles className="overflow-hidden" />
       <br />
     </div>
