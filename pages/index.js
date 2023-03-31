@@ -46,22 +46,24 @@ function Guest() {
 
 function User({ session, handleSignOut }) {
   return (
-    <main className="container mx-auto text-center py-20">
+    <main className=" bg-scroll container mx-auto align-middle justify-evenly ">
       <h3 className="text-4xl text-slate-700 font-bold py-10">
-        Good to have you...back?!
+        Oh how Wonderful!!! it"s You!...
+        <br />
+        <span className="text-slate-200">again</span>
       </h3>
 
       <div className="details">
-        <h5 className="text-3xl text-cyan-900 font-semibold ">
+        <h5 className="text-3xl text-cyan-700 font-semibold ">
           {session.user.name}
         </h5>
-        <h5 className="text-1xl text-slate-500  ">{session.user.email}</h5>
+        <h5 className="text-1xl text-slate-300  ">{session.user.email}</h5>
       </div>
 
       <div className="flex justify-center">
         <button
           onClick={handleSignOut}
-          className="mt-5 px-1- py-1 rounded-sm bg-indigo-500 text-gray-50"
+          className="mt-5 px-5- py-1 rounded-sm bg-indigo-500 text-gray-50"
         >
           Sign out
         </button>
@@ -70,16 +72,16 @@ function User({ session, handleSignOut }) {
       <div className="flex justify-center">
         <Link
           href={"/profile"}
-          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
+          className="mt-5 px-10 py-1 rounded-sm bg-violet-500 text-gray-50"
         >
           Profile Page
         </Link>
       </div>
-      <hr></hr>
+      <hr className=""></hr>
       <div className="flex justify-center">
         <Link
           href={"/player"}
-          className="mt-5 px10 py-1 rounded-sm bg-violet-500 text-gray-50"
+          className="m-5 p-10 py-1 rounded-sm bg-purple-500 text-gray-50"
         >
           Play
         </Link>
