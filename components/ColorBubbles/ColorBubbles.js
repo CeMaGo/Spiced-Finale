@@ -10,13 +10,13 @@ export default function ColorBubbles() {
     <>
       <div className={styles.bubble_wrap}>
         <div>
-          <button
+          <botton
             data-sound="/Aria.mp3"
             style={{ background: `${getRandomColor}` }}
-          >
-            <audio src={"/Aria.mp3"} typeof="audio/mpeg" />
-            Bubble
-          </button>
+            onClick={() => (!autoplay ? autoplay : console.log("not playing"))}
+            src={"/Aria.mp3"}
+            typeof="audio/mpeg"
+          ></botton>
         </div>
         {/* //===========>>> onClick via handler function, check if button is checked? for playing src*/}
         <div>
@@ -28,10 +28,10 @@ export default function ColorBubbles() {
           </button>
         </div>
         <div>
-          <button style={{ background: `${getRandomColour}` }}>Bubble</button>
+          <button style={{ background: `${getRandomColor}` }}>Bubble</button>
         </div>
         <div>
-          <button style={{ background: `${getRandomColour}` }}>Bubble</button>
+          <button style={{ background: `${getRandomColor}` }}>Bubble</button>
         </div>
         <div>
           <button className={styles.button_bubble}>Bubble</button>

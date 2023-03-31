@@ -1,23 +1,5 @@
 import React from "react";
-import {
-  GiFeather,
-  GiBanjo,
-  GiMagicLamp,
-  GiMagicSwirl,
-  GiMagicGate,
-  GiWhirlwind,
-  GiWindchimes,
-  GiPsychicWaves,
-  GiMusicalNotes,
-  GiCamelHead,
-  GiNunFace,
-  GiWaveSurfer,
-} from "react-icons/gi";
-import { WiNightAltRainMix } from "react-icons/wi";
-import { HiOutlineBell } from "react-icons/hi";
-import { TbBellFilled } from "react-icons/tb";
 import Bubbles from "@/components/MusicBubbles/MusicBubbles";
-import ReactAudioPlayer from "react-audio-player";
 import UrgeWithPleasureComponent from "../components/Countdown/Countdown";
 import Tracks from "@/components/Tracks/Tracks";
 

@@ -4,7 +4,7 @@ import styles from "../../styles/Form.module.css";
 export default function Bubbles() {
   return (
     <>
-      <section className=" h-1/3">
+      <section className=" h-4/5 mb-40">
         {" "}
         <div className={styles.bubble_wrap}>
           <div>

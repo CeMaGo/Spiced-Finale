@@ -12,11 +12,11 @@ const UrgeWithPleasureComponent = () => (
     >
       {({ remainingTime }) => remainingTime}
     </CountdownCircleTimer> */}
-    <div className="bg-sky-200 my-auto justify-center">
+    <div className="  bg-opacity-95 rounded bg-sky-200 my-auto p-10 justify-center align-middle">
       <CountdownCircleTimer
         isPlaying
         duration={60 * 2}
-        colors={["#A30000", "#F7B801", "#004777"]}
+        colors={["#004777", "##A30000", "#F7B801"]}
         colorsTime={[90, 60, 30]}
         reset
         isGrowing
@@ -24,11 +24,11 @@ const UrgeWithPleasureComponent = () => (
         {({ remainingTime }) => remainingTime}
       </CountdownCircleTimer>
     </div>
-    <div>
-      {"Breath "}
+    <div className=" h-40">spacer</div>
+    <div className="bg-opacity-90 rounded p-10 flex align-middle justify-center bg-slate-500">
       <CountdownCircleTimer
         isPlaying
-        duration={60 * 3}
+        duration={60 * 5}
         colors={["#A30000", "#F7B801", "#004777"]}
         colorsTime={[90, 60, 30]}
         reset
@@ -36,6 +36,7 @@ const UrgeWithPleasureComponent = () => (
         {({ remainingTime }) => remainingTime}
       </CountdownCircleTimer>
     </div>
+    <div className="h-20"></div>
   </div>
 );
 
