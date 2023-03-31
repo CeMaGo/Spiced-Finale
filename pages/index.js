@@ -48,7 +48,7 @@ function User({ session, handleSignOut }) {
   return (
     <main className=" bg-scroll container mx-auto align-middle justify-evenly ">
       <h3 className="text-4xl text-slate-700 font-bold py-10">
-        Oh how Wonderful!!! it"s You!...
+        Oh, How Wonderful!!! it"s You!...
         <br />
         <span className="text-slate-200">again</span>
       </h3>
@@ -63,7 +63,7 @@ function User({ session, handleSignOut }) {
       <div className="flex justify-center">
         <button
           onClick={handleSignOut}
-          className="mt-5 px-5- py-1 rounded-sm bg-indigo-500 text-gray-50"
+          className="mt-5 px-5 py-1 rounded-sm bg-gradient-to-br from-indigo-400 to bg-indigo-500 text-gray-50"
         >
           Sign out
         </button>
@@ -72,16 +72,16 @@ function User({ session, handleSignOut }) {
       <div className="flex justify-center">
         <Link
           href={"/profile"}
-          className="mt-5 px-10 py-1 rounded-sm bg-violet-500 text-gray-50"
+          className="mt-5 px-10 py-1 rounded-sm bg-gradient-to-br from-violet00 to bg-violet-400 text-gray-50"
         >
           Profile Page
         </Link>
       </div>
-      <hr className=""></hr>
+      <hr className=" mt-6 "></hr>
       <div className="flex justify-center">
         <Link
           href={"/player"}
-          className="m-5 p-10 py-1 rounded-sm bg-purple-500 text-gray-50"
+          className="m-5 p-10 py-1 rounded-sm bg-gradient-to-br from-purple-400 to bg-purple-600 text-gray-50"
         >
           Play
         </Link>

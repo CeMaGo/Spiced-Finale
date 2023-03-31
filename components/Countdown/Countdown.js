@@ -24,8 +24,8 @@ const UrgeWithPleasureComponent = () => (
         {({ remainingTime }) => remainingTime}
       </CountdownCircleTimer>
     </div>
-    <div className=" h-40">spacer</div>
-    <div className="bg-opacity-90 rounded p-10 flex align-middle justify-center bg-slate-500">
+    <div className=" h-40"></div>
+    <div className="bg-opacity-75 rounded p-10 flex align-middle justify-center bg-slate-500">
       <CountdownCircleTimer
         isPlaying
         duration={60 * 5}
