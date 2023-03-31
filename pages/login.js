@@ -46,7 +46,7 @@ export default function Login() {
         <title>Login</title>
       </Head>
 
-      <section className="w-3/4 mx-auto flex flex-col gap-8 ">
+      <section className=" bg-scroll w-3/4 mx-auto flex flex-col gap-8 ">
         <div className="title">
           <h1 className="text-gray-800 text-4xl font-bold py-4">Login</h1>
           <p className=" w-4/4 mx-auto text-gray-400">

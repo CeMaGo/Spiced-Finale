@@ -2,6 +2,7 @@ import React from "react";
 import Bubbles from "@/components/MusicBubbles/MusicBubbles";
 import UrgeWithPleasureComponent from "../components/Countdown/Countdown";
 import Tracks from "@/components/Tracks/Tracks";
+import Link from "next/link";
 
 function Player() {
   return (
@@ -12,6 +13,17 @@ function Player() {
         <UrgeWithPleasureComponent className=" grid grid-cols-2 justify-evenly" />
       </div>
       <Tracks />
+      <div className="h-20 align-middle justify-evenly flex bg-slate-300 mt-10">
+        <Link
+          href={
+            "https://i.kym-cdn.com/photos/images/original/001/022/360/d0d.jpg"
+          }
+          rel="Thank you and good night"
+          className="h-30 justify-evenly mt-7"
+        >
+          Click me
+        </Link>
+      </div>
     </div>
   );
 }
